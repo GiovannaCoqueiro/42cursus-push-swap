@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 17:41:46 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/17 07:35:30 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/08/17 11:45:26 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	swap_a(t_stack *stack)
 		temp = stack->a[0];
 		stack->a[0] = stack->a[1];
 		stack->a[1] = temp;
-		return (1);
+		return (SA);
 	}
 	return (0);
 }
@@ -35,7 +35,7 @@ int	swap_b(t_stack *stack)
 		temp = stack->b[0];
 		stack->b[0] = stack->b[1];
 		stack->b[1] = temp;
-		return (1);
+		return (SB);
 	}
 	return (0);
 }
@@ -46,7 +46,7 @@ int	swap_swap(t_stack *stack)
 	{
 		swap_a(stack);
 		swap_b(stack);
-		return (1);
+		return (SS);
 	}
 	return (0);
 }

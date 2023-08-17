@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 17:26:11 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/16 19:13:37 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/08/17 11:44:36 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	push_a(t_stack *stack)
 			stack->b[i] = stack->b[i + 1];
 		stack->b[i] = 0;
 		stack->b_len--;
-		return (1);
+		return (PA);
 	}
 	return (0);
 }
@@ -55,7 +55,7 @@ int	push_b(t_stack *stack)
 			stack->a[i] = stack->a[i + 1];
 		stack->a[i] = 0;
 		stack->a_len--;
-		return (1);
+		return (PB);
 	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 06:44:41 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/17 07:33:57 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/08/17 11:44:58 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	revrol_a(t_stack *stack)
 		while (--i > 0)
 			stack->a[i] = stack->a[i - 1];
 		stack->a[i] = temp;
-		return (1);
+		return (RRA);
 	}
 	return (0);
 }
@@ -41,7 +41,7 @@ int	revrol_b(t_stack *stack)
 		while (--i > 0)
 			stack->b[i] = stack->b[i - 1];
 		stack->b[i] = temp;
-		return (1);
+		return (RRB);
 	}
 	return (0);
 }
@@ -52,7 +52,7 @@ int	revrol_revrol(t_stack *stack)
 	{
 		revrol_a(stack);
 		revrol_b(stack);
-		return (1);
+		return (RRR);
 	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 17:51:43 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/17 07:32:46 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/08/17 11:45:10 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	rol_a(t_stack *stack)
 		while (++i < stack->a_len - 1)
 			stack->a[i] = stack->a[i + 1];
 		stack->a[i] = temp;
-		return (1);
+		return (RA);
 	}
 	return (0);
 }
@@ -41,7 +41,7 @@ int	rol_b(t_stack *stack)
 		while (++i < stack->b_len - 1)
 			stack->b[i] = stack->b[i + 1];
 		stack->b[i] = temp;
-		return (1);
+		return (RB);
 	}
 	return (0);
 }
@@ -52,7 +52,7 @@ int	rol_rol(t_stack *stack)
 	{
 		rol_a(stack);
 		rol_b(stack);
-		return (1);
+		return (RR);
 	}
 	return (0);
 }

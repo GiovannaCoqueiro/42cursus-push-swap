@@ -6,125 +6,107 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 16:56:55 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/17 08:25:34 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/08/17 17:32:20 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	insertion_sort(int *tab, int range);
-static void	put_index(int *tab, int *copy, int range);
-
-void	test(t_stack *stack)
+void	print_a(t_stack *stack)
 {
 	size_t	i;
 
 	i = -1;
-	ft_printf("push b:\n");
-	push_b(stack);
-	push_b(stack);
-	push_b(stack);
-	ft_printf("antes do swap b:\n");
-	while (++i < stack->b_len)
-		ft_printf("%d: %d\n", i, stack->b[i]);
+	while (++i < stack->a_len)
+		ft_printf("%d: %d\n", i, stack->a[i]);
+}
 
+void	print_b(t_stack *stack)
+{
+	size_t	i;
 
-	swap_b(stack);
-	ft_printf("após o swap b:\n");
-	i = -1;
-	while (++i < stack->b_len)
-		ft_printf("%d: %d\n", i, stack->b[i]);
-	ft_printf("antes do swap a:\n");
-	i = -1;
-	while (++i < stack->a_len)
-		ft_printf("%d: %d\n", i, stack->a[i]);
-	swap_a(stack);
-	ft_printf("após o swap a:\n");
-	i = -1;
-	while (++i < stack->a_len)
-		ft_printf("%d: %d\n", i, stack->a[i]);
-	ft_printf("antes do swap swap:\n");
-	ft_printf("a\n");
-	i = -1;
-	while (++i < stack->a_len)
-		ft_printf("%d: %d\n", i, stack->a[i]);
-	ft_printf("b:\n");
-	i = -1;
-	while (++i < stack->b_len)
-		ft_printf("%d: %d\n", i, stack->b[i]);
-	swap_swap(stack);
-	ft_printf("após do swap swap:\n");
-	ft_printf("a\n");
-	i = -1;
-	while (++i < stack->a_len)
-		ft_printf("%d: %d\n", i, stack->a[i]);
-	ft_printf("b:\n");
-	i = -1;
-	while (++i < stack->b_len)
-		ft_printf("%d: %d\n", i, stack->b[i]);
-
-
-	rol_a(stack);
-	ft_printf("rotate a:\n");
-	i = -1;
-	while (++i < stack->a_len)
-		ft_printf("%d: %d\n", i, stack->a[i]);
-	rol_b(stack);
-	i = -1;
-	ft_printf("rotate b:\n");
-	while (++i < stack->b_len)
-		ft_printf("%d: %d\n", i, stack->b[i]);
-	rol_rol(stack);
-	ft_printf("rotate rotate:\n");
-	ft_printf("a:\n");
-	i = -1;
-	while (++i < stack->a_len)
-		ft_printf("%d: %d\n", i, stack->a[i]);
-	ft_printf("b:\n");
-	i = -1;
-	while (++i < stack->b_len)
-		ft_printf("%d: %d\n", i, stack->b[i]);
-
-
-	revrol_a(stack);
-	ft_printf("rev rotate a:\n");
-	i = -1;
-	while (++i < stack->a_len)
-		ft_printf("%d: %d\n", i, stack->a[i]);
-	revrol_b(stack);
-	i = -1;
-	ft_printf("rev rotate b:\n");
-	while (++i < stack->b_len)
-		ft_printf("%d: %d\n", i, stack->b[i]);
-	revrol_revrol(stack);
-	ft_printf("rev rotate rev rotate:\n");
-	ft_printf("a:\n");
-	i = -1;
-	while (++i < stack->a_len)
-		ft_printf("%d: %d\n", i, stack->a[i]);
-	ft_printf("b:\n");
-	i = -1;
-	while (++i < stack->b_len)
-		ft_printf("%d: %d\n", i, stack->b[i]);
-
-
-	push_a(stack);
-	ft_printf("push a:\n");
-	i = -1;
-	while (++i < stack->a_len)
-		ft_printf("%d: %d\n", i, stack->a[i]);
-	ft_printf("b:\n");
 	i = -1;
 	while (++i < stack->b_len)
 		ft_printf("%d: %d\n", i, stack->b[i]);
 }
 
+void	test(t_stack *stack)
+{
+	push_b(stack);
+	push_b(stack);
+	push_b(stack);
+
+
+	ft_printf("antes do swap b:\n");
+	print_b(stack);
+	swap_b(stack);
+	ft_printf("após o swap b:\n");
+	print_b(stack);
+	ft_printf("antes do swap a:\n");
+	print_a(stack);
+	swap_a(stack);
+	ft_printf("após o swap a:\n");
+	print_a(stack);
+	ft_printf("antes do swap swap:\n");
+	ft_printf("a:\n");
+	print_a(stack);
+	ft_printf("b:\n");
+	print_b(stack);
+	swap_swap(stack);
+	ft_printf("após do swap swap:\n");
+	ft_printf("a:\n");
+	print_a(stack);
+	ft_printf("b:\n");
+	print_b(stack);
+
+
+	rol_a(stack);
+	ft_printf("rotate a:\n");
+	print_a(stack);
+	rol_b(stack);
+	ft_printf("rotate b:\n");
+	print_b(stack);
+	rol_rol(stack);
+	ft_printf("rotate rotate:\n");
+	ft_printf("a:\n");
+	print_a(stack);
+	ft_printf("b:\n");
+	print_b(stack);
+
+
+	revrol_a(stack);
+	ft_printf("rev rotate a:\n");
+	print_a(stack);
+	revrol_b(stack);
+	ft_printf("rev rotate b:\n");
+	print_b(stack);
+	revrol_revrol(stack);
+	ft_printf("rev rotate rev rotate:\n");
+	ft_printf("a:\n");
+	print_a(stack);
+	ft_printf("b:\n");
+	print_b(stack);
+
+
+	push_a(stack);
+	ft_printf("push a:\n");
+	print_a(stack);
+	ft_printf("b:\n");
+	print_b(stack);
+
+
+	push_a(stack);
+	push_a(stack);
+}
+
 int	main(int argc, char **argv)
 {
 	t_stack	stack;
+	t_moves	moves;
 
 	if (argc >= 2)
 	{
+		stack.moves = &moves;
 		check_params(argc, argv);
 		stack.a = create_stack(argc - 1, argv, &stack);
 		stack.a_len = argc - 1;
@@ -137,59 +119,16 @@ int	main(int argc, char **argv)
 			error_check(4, &stack);
 
 
-		test(&stack);
+		final_sort(&stack);
+		print_a(&stack);
+		ft_printf("%d\n", moves.len);
+		size_t i = -1;
+		while (++i < moves.len)
+			ft_printf("%d\n", moves.moves[i]);
+		// test(&stack);
 
 
 		free_for_finish(&stack);
 	}
 	return (0);
-}
-
-int	*create_stack(int range, char **param, t_stack *stack)
-{
-	int	index;
-	int	*tab;
-
-	tab = malloc(sizeof(int) * range);
-	if (tab == NULL)
-		error_check(4, stack);
-	index = -1;
-	while (++index < range)
-		tab[index] = ft_atol(param[index + 1]);
-	return (tab);
-}
-
-static void	insertion_sort(int *tab, int range)
-{
-	int	i;
-	int	j;
-	int	temp;
-
-	i = 0;
-	while (++i < range)
-	{
-		j = i;
-		while (j > 0 && tab[j] < tab[j - 1])
-		{
-			temp = tab[j];
-			tab[j] = tab[j - 1];
-			tab[j - 1] = temp;
-			j--;
-		}
-	}
-}
-
-static void	put_index(int *tab, int *copy, int range)
-{
-	int	i;
-	int	j;
-
-	i = -1;
-	while (++i < range)
-	{
-		j = 0;
-		while (tab[i] != copy[j])
-			j++;
-		tab[i] = j;
-	}
 }

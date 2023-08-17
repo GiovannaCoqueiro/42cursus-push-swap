@@ -6,7 +6,7 @@
 #    By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/10 08:58:42 by gcoqueir          #+#    #+#              #
-#    Updated: 2023/08/17 06:44:31 by gcoqueir         ###   ########.fr        #
+#    Updated: 2023/08/17 14:17:25 by gcoqueir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ INC = ./include
 LIBFT = ./libft
 SRCS = srcs/
 BONUS_SRCS = bonus/
-FILES = $(SRCS)push_swap.c $(SRCS)program_call_check.c $(SRCS)swap_moves.c \
+FILES = $(SRCS)push_swap.c $(SRCS)program_call_check.c $(SRCS)init_utils.c \
+		$(SRCS)final_sort.c $(SRCS)simulate.c $(SRCS)swap_moves.c \
 		$(SRCS)push_moves.c $(SRCS)rotate_moves.c $(SRCS)reverse_moves.c \
 		$(SRCS)free_and_error.c
 OBJS = $(FILES:.c=.o)

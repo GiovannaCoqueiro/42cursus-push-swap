@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 06:54:55 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/17 08:08:30 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/08/17 16:30:18 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,13 @@ enum e_move
 	RRR,
 };
 
+typedef struct s_moves
+{
+	int		*moves;
+	size_t	len;
+	int		index;
+}		t_moves;
+
 typedef struct s_stack
 {
 	int		*a;
@@ -44,10 +51,20 @@ typedef struct s_stack
 	size_t	a_len;
 	size_t	b_len;
 	size_t	real_range;
+	t_moves	*moves;
 }			t_stack;
 
 void	check_params(int list, char **param);
 int		*create_stack(int range, char **param, t_stack *stack);
+void	insertion_sort(int *tab, int range);
+void	put_index(int *tab, int *copy, int range);
+
+void	final_sort(t_stack *stack);
+int		is_sorted(t_stack *stack);
+
+void	next_moves(t_stack *stack, t_moves *moves);
+void	just_three(t_stack *stack, t_moves *moves);
+int		*alloc_moves(t_moves *moves, int len);
 
 int		swap_a(t_stack *stack);
 int		swap_b(t_stack *stack);
