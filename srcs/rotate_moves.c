@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 17:51:43 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/16 19:29:54 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/08/17 07:32:46 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,11 @@ int	rol_b(t_stack *stack)
 
 int	rol_rol(t_stack *stack)
 {
-	if (rol_a(stack) != 0 && rol_b(stack) != 0)
+	if (stack->a_len >= 0 && stack->b_len >= 1)
+	{
+		rol_a(stack);
+		rol_b(stack);
 		return (1);
+	}
 	return (0);
 }

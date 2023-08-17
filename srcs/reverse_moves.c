@@ -1,51 +1,57 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap_moves.c                                       :+:      :+:    :+:   */
+/*   reverse_moves.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/15 17:41:46 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/17 07:35:30 by gcoqueir         ###   ########.fr       */
+/*   Created: 2023/08/17 06:44:41 by gcoqueir          #+#    #+#             */
+/*   Updated: 2023/08/17 07:33:57 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	swap_a(t_stack *stack)
+int	revrol_a(t_stack *stack)
 {
-	int	temp;
+	size_t	i;
+	int		temp;
 
-	if (stack->a_len >= 2)
+	if (stack->a_len >= 1)
 	{
-		temp = stack->a[0];
-		stack->a[0] = stack->a[1];
-		stack->a[1] = temp;
+		temp = stack->a[stack->a_len - 1];
+		i = stack->a_len;
+		while (--i > 0)
+			stack->a[i] = stack->a[i - 1];
+		stack->a[i] = temp;
 		return (1);
 	}
 	return (0);
 }
 
-int	swap_b(t_stack *stack)
+int	revrol_b(t_stack *stack)
 {
-	int	temp;
+	size_t	i;
+	int		temp;
 
-	if (stack->b_len >= 2)
+	if (stack->b_len >= 1)
 	{
-		temp = stack->b[0];
-		stack->b[0] = stack->b[1];
-		stack->b[1] = temp;
+		temp = stack->b[stack->b_len - 1];
+		i = stack->b_len;
+		while (--i > 0)
+			stack->b[i] = stack->b[i - 1];
+		stack->b[i] = temp;
 		return (1);
 	}
 	return (0);
 }
 
-int	swap_swap(t_stack *stack)
+int	revrol_revrol(t_stack *stack)
 {
-	if (stack->a_len >= 2 && stack->b_len >= 2)
+	if (stack->a_len >= 1 && stack->b_len >= 1)
 	{
-		swap_a(stack);
-		swap_b(stack);
+		revrol_a(stack);
+		revrol_b(stack);
 		return (1);
 	}
 	return (0);
