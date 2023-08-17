@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 16:56:55 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/17 17:32:20 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/08/17 17:42:50 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,11 +120,10 @@ int	main(int argc, char **argv)
 
 
 		final_sort(&stack);
+		print_moves(&moves);
 		print_a(&stack);
 		ft_printf("%d\n", moves.len);
-		size_t i = -1;
-		while (++i < moves.len)
-			ft_printf("%d\n", moves.moves[i]);
+
 		// test(&stack);
 
 
