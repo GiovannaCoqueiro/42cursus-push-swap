@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 11:25:10 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/22 12:43:52 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/08/22 13:35:49 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,19 @@ t_node	*create_stack(int range, char **param)
 	int		i;
 	t_node	*a;
 	t_node	*temp;
-	t_node	*prev_temp;
 
 	a = new_node(ft_atol(param[1]));
 	temp = a;
 	a->next = temp;
-	prev_temp = a;
 	i = 1;
 	while (++i < range)
 	{
 		temp->next = new_node(ft_atol(param[i]));
-		temp->prev = prev_temp;
-		prev_temp = temp;
+		temp->next->prev = temp;
 		temp = temp->next;
-		temp->next = a;
 	}
 	a->prev = temp;
+	temp->next = a;
 	return (a);
 }
 
@@ -49,7 +46,7 @@ t_node	*new_node(long nbr)
 	return (node);
 }
 
-void	insertion_sort(int *tab, int range)
+void	insertion_sort(t_node *node, int range)
 {
 	int	i;
 	int	j;

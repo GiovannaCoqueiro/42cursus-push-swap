@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 06:54:55 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/22 12:32:47 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/08/22 13:20:58 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ typedef struct s_stack
 {
 	size_t	a_len;
 	size_t	b_len;
-	t_node	*stack_a;
-	t_node	*stack_b;
+	t_node	*a;
+	t_node	*b;
 	t_node	*copy;
 	t_moves	*moves;
 }	t_stack;

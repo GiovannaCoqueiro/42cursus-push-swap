@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 09:33:47 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/22 12:47:56 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/08/22 13:35:53 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,9 @@ int	main(int argc, char **argv)
 	if (argc >= 2)
 	{
 		check_params(argc, argv);
-		stack.stack_a = create_stack(argc, argv);
+		stack.a = create_stack(argc, argv);
 		stack.copy = create_stack(argc, argv);
-		i = 0;
-		while (++i < argc)
-		{
-			ft_printf("%p\n", &stack.stack_a->next);
-			stack.stack_a = stack.stack_a->next;
-		}
-		i = 0;
-		while (++i < argc)
-		{
-			ft_printf("%p\n", stack.stack_a);
-			stack.stack_a = stack.stack_a->prev;
-		}
+		// insertion_sort(&stack.copy, argc - 1);
 	}
 	return (0);
 }
