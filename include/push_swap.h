@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 06:54:55 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/22 13:20:58 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/08/22 19:25:40 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ typedef struct s_moves
 typedef struct s_node
 {
 	int				value;
+	int				index;
+	int				len;
 	struct s_node	*next;
 	struct s_node	*prev;
 }	t_node;
@@ -63,11 +65,12 @@ typedef struct s_stack
 void	check_params(int list, char **param);
 t_node	*create_stack(int range, char **param);
 t_node	*new_node(long nbr);
-void	insertion_sort(int *tab, int range);
-void	put_index(int *tab, int *copy, int range);
+void	get_index(t_node *node, int range);
+void	put_index(t_node *a, t_node *copy, int range);
+void	insertion_sort(t_node *node, int range);
 
 void	final_sort(t_stack *stack);
-int		is_sorted(t_stack *stack);
+int		is_sorted(t_node *node, int range);
 
 void	first_moves(t_stack *stack, t_moves *moves);
 void	just_three(t_stack *stack, t_moves *moves);
