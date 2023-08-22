@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 06:54:55 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/17 16:30:18 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/08/17 17:44:42 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,10 @@ int		is_sorted(t_stack *stack);
 void	next_moves(t_stack *stack, t_moves *moves);
 void	just_three(t_stack *stack, t_moves *moves);
 int		*alloc_moves(t_moves *moves, int len);
+
+
+void	print_moves(t_moves *moves);
+void	print_moves_aux(t_moves *moves, int index);
 
 int		swap_a(t_stack *stack);
 int		swap_b(t_stack *stack);
