@@ -6,24 +6,47 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 11:25:10 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/17 11:26:00 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/08/22 12:43:52 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	*create_stack(int range, char **param, t_stack *stack)
+t_node	*create_stack(int range, char **param)
 {
-	int	index;
-	int	*tab;
+	int		i;
+	t_node	*a;
+	t_node	*temp;
+	t_node	*prev_temp;
 
-	tab = malloc(sizeof(int) * range);
-	if (tab == NULL)
-		error_check(4, stack);
-	index = -1;
-	while (++index < range)
-		tab[index] = ft_atol(param[index + 1]);
-	return (tab);
+	a = new_node(ft_atol(param[1]));
+	temp = a;
+	a->next = temp;
+	prev_temp = a;
+	i = 1;
+	while (++i < range)
+	{
+		temp->next = new_node(ft_atol(param[i]));
+		temp->prev = prev_temp;
+		prev_temp = temp;
+		temp = temp->next;
+		temp->next = a;
+	}
+	a->prev = temp;
+	return (a);
+}
+
+t_node	*new_node(long nbr)
+{
+	t_node	*node;
+
+	node = malloc(sizeof(t_node));
+	if (node == NULL)
+		return (NULL);
+	node->value = nbr;
+	node->next = NULL;
+	node->prev = NULL;
+	return (node);
 }
 
 void	insertion_sort(int *tab, int range)

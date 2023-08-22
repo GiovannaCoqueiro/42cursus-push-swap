@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 06:54:55 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/17 17:44:42 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/08/22 12:32:47 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,31 +41,37 @@ typedef struct s_moves
 	int		*moves;
 	size_t	len;
 	int		index;
-}		t_moves;
+}	t_moves;
+
+typedef struct s_node
+{
+	int				value;
+	struct s_node	*next;
+	struct s_node	*prev;
+}	t_node;
 
 typedef struct s_stack
 {
-	int		*a;
-	int		*b;
-	int		*copy;
 	size_t	a_len;
 	size_t	b_len;
-	size_t	real_range;
+	t_node	*stack_a;
+	t_node	*stack_b;
+	t_node	*copy;
 	t_moves	*moves;
-}			t_stack;
+}	t_stack;
 
 void	check_params(int list, char **param);
-int		*create_stack(int range, char **param, t_stack *stack);
+t_node	*create_stack(int range, char **param);
+t_node	*new_node(long nbr);
 void	insertion_sort(int *tab, int range);
 void	put_index(int *tab, int *copy, int range);
 
 void	final_sort(t_stack *stack);
 int		is_sorted(t_stack *stack);
 
-void	next_moves(t_stack *stack, t_moves *moves);
+void	first_moves(t_stack *stack, t_moves *moves);
 void	just_three(t_stack *stack, t_moves *moves);
 int		*alloc_moves(t_moves *moves, int len);
-
 
 void	print_moves(t_moves *moves);
 void	print_moves_aux(t_moves *moves, int index);
