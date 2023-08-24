@@ -6,28 +6,42 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 15:26:37 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/22 13:20:47 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/08/23 19:33:07 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_for_finish(t_stack *stack)
+void	free_for_finish(t_list *list)
 {
-	if (stack->a != NULL)
-		free(stack->a);
-	if (stack->b != NULL)
-		free(stack->b);
-	if (stack->copy != NULL)
-		free(stack->copy);
-	if (stack->moves->moves != NULL)
-		free(stack->moves->moves);
+	if (list->a != NULL)
+		free_node(&list->a, list->a_len);
+	if (list->b != NULL)
+		free_node(&list->b, list->b_len);
+	// if (list->copy != NULL)
+	// 	free_node(list->copy);
+	free(list);
 }
 
-void	error_check(int i, t_stack *stack)
+void	free_node(t_node **node, int len)
 {
-	if (stack != NULL)
-		free_for_finish(stack);
+	int		i;
+	t_node	*temp;
+
+	i = -1;
+	while (++i < len)
+	{
+		temp = *node;
+		*node = temp->next;
+		ft_printf("%d\n", temp->value);
+		free(temp);
+	}
+}
+
+void	error_check(int i, t_list *list)
+{
+	if (list != NULL)
+		free_for_finish(list);
 	ft_printf("Error\n");
 	exit (i);
 }

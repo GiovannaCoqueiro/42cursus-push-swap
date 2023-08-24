@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 06:54:55 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/22 19:25:40 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/08/24 08:31:23 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,59 +39,59 @@ enum e_move
 typedef struct s_moves
 {
 	int		*moves;
-	size_t	len;
 	int		index;
+	size_t	len;
 }	t_moves;
 
 typedef struct s_node
 {
 	int				value;
 	int				index;
-	int				len;
 	struct s_node	*next;
-	struct s_node	*prev;
 }	t_node;
 
-typedef struct s_stack
+typedef struct s_list
 {
-	size_t	a_len;
-	size_t	b_len;
 	t_node	*a;
+	int		a_len;
 	t_node	*b;
+	int		b_len;
 	t_node	*copy;
 	t_moves	*moves;
-}	t_stack;
+}	t_list;
 
-void	check_params(int list, char **param);
-t_node	*create_stack(int range, char **param);
+void	check_params(int range, char **param);
+t_list	*init_list(void);
+t_node	*create_list(t_list *list, int range, char **param);
 t_node	*new_node(long nbr);
 void	get_index(t_node *node, int range);
 void	put_index(t_node *a, t_node *copy, int range);
 void	insertion_sort(t_node *node, int range);
 
-void	final_sort(t_stack *stack);
+void	final_sort(t_list *list);
 int		is_sorted(t_node *node, int range);
 
-void	first_moves(t_stack *stack, t_moves *moves);
-void	just_three(t_stack *stack, t_moves *moves);
+void	first_moves(t_list *list, t_moves *moves);
+void	just_three(t_list *list, t_moves *moves);
 int		*alloc_moves(t_moves *moves, int len);
 
 void	print_moves(t_moves *moves);
 void	print_moves_aux(t_moves *moves, int index);
 
-int		swap_a(t_stack *stack);
-int		swap_b(t_stack *stack);
-int		swap_swap(t_stack *stack);
-int		push_a(t_stack *stack);
-int		push_b(t_stack *stack);
-int		rol_a(t_stack *stack);
-int		rol_b(t_stack *stack);
-int		rol_rol(t_stack *stack);
-int		revrol_a(t_stack *stack);
-int		revrol_b(t_stack *stack);
-int		revrol_revrol(t_stack *stack);
+int		swap_a(t_list *list, t_node *a);
+int		swap_b(t_list *list, t_node *b);
+int		swap_swap(t_list *list);
+int		push_a(t_list *list);
+int		push_b(t_list *list);
+int		rol_a(t_list *list, t_node *a);
+int		rol_b(t_list *list, t_node *b);
+int		rol_rol(t_list *list);
+int		revrol_a(t_list *list, t_node *a);
+int		revrol_b(t_list *list, t_node *b);
+int		revrol_revrol(t_list *list);
 
-void	free_for_finish(t_stack *stack);
-void	error_check(int i, t_stack *stack);
+void	free_for_finish(t_list *list);
+void	free_node(t_node **node, int len);
+void	error_check(int i, t_list *list);
 
 #endif

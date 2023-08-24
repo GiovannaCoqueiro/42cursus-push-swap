@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 08:41:57 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/17 11:28:41 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/08/23 13:16:41 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 static int	check_number(char *str, size_t len);
 static int	check_value(char *str);
 
-void	check_params(int list, char **param)
+void	check_params(int range, char **param)
 {
 	int		count;
 	int		temp;
 	size_t	len;
 
 	count = 0;
-	while (++count < list)
+	while (++count < range)
 	{
 		len = ft_strlen(param[count]);
 		if (check_number(param[count], len) == 0)

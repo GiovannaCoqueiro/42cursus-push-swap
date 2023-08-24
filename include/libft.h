@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 09:02:06 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/15 19:16:25 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/08/23 16:11:02 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,6 @@
 # define UPPER_HEX "0123456789ABCDEF"
 # define LOWER_HEX "0123456789abcdef"
 # define BUFFER_SIZE 42
-
-typedef struct s_list
-{
-	void			*content;
-	struct s_list	*next;
-}					t_list;
 
 long	ft_atol(const char *nptr);
 size_t	ft_strlen(const char *s);
@@ -49,15 +43,6 @@ int		print_ptr(unsigned long nbr, char *base);
 int		print_nbr(int nbr, char *str, int index, int flag_check);
 int		print_unint(unsigned int nbr);
 int		print_hex(unsigned int nbr, char *str, int index, int hash_check);
-void	ft_lstadd_back(t_list **lst, t_list *new);
-void	ft_lstadd_front(t_list **lst, t_list *new);
-void	ft_lstclear(t_list **lst, void (*del)(void*));
-void	ft_lstdelone(t_list *lst, void (*del)(void *));
-void	ft_lstiter(t_list *lst, void (*f)(void *));
-t_list	*ft_lstlast(t_list *lst);
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
-t_list	*ft_lstnew(void *content);
-int	    ft_lstsize(t_list *lst);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 
 #endif
