@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 17:41:46 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/24 09:40:01 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/08/24 16:16:09 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,48 +14,27 @@
 
 int	swap_a(t_list *list, t_node *a)
 {
-	t_node	*temp;
-	t_node	*temp2;
-	t_node	*iter;
+	int	temp;
 
 	if (list->a_len >= 2)
 	{
-		temp = a;
-		temp2 = a->next;
-		iter = a;
-		while (iter->next != a)
-			iter = iter->next;
-		a->next = a;
-		a = temp2;
-		iter->next = temp;
+		temp = a->value;
+		a->value = a->next->value;
+		a->next->value = temp;
 		return (SA);
 	}
 	return (0);
 }
 
-
-		// temp1 = temp->next;
-        // temp->next = temp1->next;
-        // temp1->next = temp;
-        // head = temp1;
-
-
 int	swap_b(t_list *list, t_node *b)
 {
-	t_node	*temp;
-	t_node	*temp2;
-	t_node	*iter;
+	int	temp;
 
-	if (list->b_len >= 2)
+	if (list->a_len >= 2)
 	{
-		temp = b;
-		temp2 = b->next;
-		iter = b;
-		while (iter->next != b)
-			iter = iter->next;
-		b->next = b;
-		b = temp;
-		iter->next = temp;
+		temp = b->value;
+		b->value = b->next->value;
+		b->next->value = temp;
 		return (SB);
 	}
 	return (0);
