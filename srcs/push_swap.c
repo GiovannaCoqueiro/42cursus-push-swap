@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 09:33:47 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/24 16:27:31 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/08/24 17:47:35 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -180,13 +180,14 @@ void	test(t_list *list)
 int	main(int argc, char **argv)
 {
 	t_list	*list;
-	// t_node	*temp;
+	int		*copy;
 
 	if (argc >= 2)
 	{
 		check_params(argc, argv);
 		list = init_list();
 		list->a = create_list(list, argc, argv);
+		copy = get_index(argc, argv, list);
 
 		test(list);
 		// int i = -1;
@@ -196,6 +197,7 @@ int	main(int argc, char **argv)
 		// 	ft_printf("%d\n", temp->value);
 		// 	temp = temp->next;
 		// }
+		free(copy);
 		free_for_finish(list);
 	}
 	return (0);

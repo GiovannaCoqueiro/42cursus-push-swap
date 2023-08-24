@@ -6,11 +6,14 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 11:25:10 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/24 15:43:22 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/08/24 18:20:36 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static t_node	*new_node(long nbr);
+static void	insertion_sort(int *tab, int range);
 
 t_list	*init_list(void)
 {
@@ -46,7 +49,7 @@ t_node	*create_list(t_list *list, int range, char **param)
 	return (node);
 }
 
-t_node	*new_node(long nbr)
+static t_node	*new_node(long nbr)
 {
 	t_node	*node;
 
@@ -58,12 +61,39 @@ t_node	*new_node(long nbr)
 	return (node);
 }
 
-// void	get_index(t_node *node, int range)
-// {
+int	*get_index(int range, char **param, t_list *list)
+{
+	int	*copy;
+	int	i;
 
-// }
+	copy = malloc(sizeof(int) * range - 1);
+	if (copy == NULL)
+		error_check(4, list);
+	i = -1;
+	while (++i < range - 1)
+		copy[i] = ft_atol(param[i + 1]);
+	insertion_sort(copy, range - 1);
 
-// void	put_index(t_node *a, t_node *copy, int range)
-// {
+	
+	return (copy);
+}
 
-// }
+static void	insertion_sort(int *tab, int range)
+{
+	int	i;
+	int	j;
+	int	temp;
+
+	i = 0;
+	while (++i < range)
+	{
+		j = i;
+		while (j > 0 && tab[j] < tab[j - 1])
+		{
+			temp = tab[j];
+			tab[j] = tab[j - 1];
+			tab[j - 1] = temp;
+			j--;
+		}
+	}
+}
