@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 06:54:55 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/24 08:31:23 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/08/24 09:55:02 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,8 @@ void	print_moves_aux(t_moves *moves, int index);
 int		swap_a(t_list *list, t_node *a);
 int		swap_b(t_list *list, t_node *b);
 int		swap_swap(t_list *list);
-int		push_a(t_list *list);
-int		push_b(t_list *list);
+int		push_a(t_list *list, t_node *a, t_node *b);
+int		push_b(t_list *list, t_node *a, t_node *b);
 int		rol_a(t_list *list, t_node *a);
 int		rol_b(t_list *list, t_node *b);
 int		rol_rol(t_list *list);

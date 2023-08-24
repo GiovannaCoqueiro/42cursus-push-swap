@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 17:41:46 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/24 09:24:34 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/08/24 09:40:01 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,13 @@ int	swap_a(t_list *list, t_node *a)
 	}
 	return (0);
 }
+
+
+		// temp1 = temp->next;
+        // temp->next = temp1->next;
+        // temp1->next = temp;
+        // head = temp1;
+
 
 int	swap_b(t_list *list, t_node *b)
 {

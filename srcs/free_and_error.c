@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 15:26:37 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/23 19:33:07 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/08/24 16:08:59 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void	free_node(t_node **node, int len)
 	{
 		temp = *node;
 		*node = temp->next;
-		ft_printf("%d\n", temp->value);
 		free(temp);
 	}
 }
