@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 14:11:06 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/26 14:11:33 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/08/26 14:14:46 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	insertion_sort(int *tab, int range);
 static void	put_index(t_list *list, int	*copy, int range);
 
-int	*get_index(int range, char **param, t_list *list)
+void	get_index(int range, char **param, t_list *list)
 {
 	int		*copy;
 	int		i;
@@ -28,7 +28,7 @@ int	*get_index(int range, char **param, t_list *list)
 		copy[i] = ft_atol(param[i + 1]);
 	insertion_sort(copy, range - 1);
 	put_index(list, copy, range);
-	return (copy);
+	free(copy);
 }
 
 static void	put_index(t_list *list, int	*copy, int range)

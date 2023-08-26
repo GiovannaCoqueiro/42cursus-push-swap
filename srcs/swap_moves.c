@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 17:41:46 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/24 16:16:09 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/08/26 14:15:21 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ int	swap_a(t_list *list, t_node *a)
 
 	if (list->a_len >= 2)
 	{
-		temp = a->value;
-		a->value = a->next->value;
-		a->next->value = temp;
+		temp = a->index;
+		a->index = a->next->index;
+		a->next->index = temp;
 		return (SA);
 	}
 	return (0);
@@ -32,9 +32,9 @@ int	swap_b(t_list *list, t_node *b)
 
 	if (list->a_len >= 2)
 	{
-		temp = b->value;
-		b->value = b->next->value;
-		b->next->value = temp;
+		temp = b->index;
+		b->index = b->next->index;
+		b->next->index = temp;
 		return (SB);
 	}
 	return (0);

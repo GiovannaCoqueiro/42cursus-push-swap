@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 06:54:55 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/26 14:07:48 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/08/26 14:14:30 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ typedef struct s_list
 void	check_params(int range, char **param);
 t_list	*init_list(void);
 t_node	*create_list(t_list *list, int range, char **param);
-int		*get_index(int range, char **param, t_list *list);
+void	get_index(int range, char **param, t_list *list);
 
 void	final_sort(t_list *list);
 int		is_sorted(t_node *node, int range);

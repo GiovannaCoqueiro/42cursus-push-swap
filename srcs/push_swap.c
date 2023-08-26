@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 09:33:47 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/26 14:02:52 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/08/26 14:15:49 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	test(t_list *list)
 	i = -1;
 	while (++i < list->a_len)
 	{
-		ft_printf("original list: %d\n", temp->value);
+		ft_printf("original list: %d\n", temp->index);
 		temp = temp->next;
 	}
 
@@ -34,7 +34,7 @@ void	test(t_list *list)
 	i = -1;
 	while (++i < list->a_len)
 	{
-		ft_printf("push b list a: %d\n", temp->value);
+		ft_printf("push b list a: %d\n", temp->index);
 		temp = temp->next;
 	}
 	ft_printf("\n");
@@ -42,7 +42,7 @@ void	test(t_list *list)
 	i = -1;
 	while (++i < list->b_len)
 	{
-		ft_printf("push b list b: %d\n", temp->value);
+		ft_printf("push b list b: %d\n", temp->index);
 		temp = temp->next;
 	}
 
@@ -53,7 +53,7 @@ void	test(t_list *list)
 	i = -1;
 	while (++i < list->a_len)
 	{
-		ft_printf("rotate list a: %d\n", temp->value);
+		ft_printf("rotate list a: %d\n", temp->index);
 		temp = temp->next;
 	}
 	ft_printf("\n");
@@ -62,7 +62,7 @@ void	test(t_list *list)
 	i = -1;
 	while (++i < list->b_len)
 	{
-		ft_printf("rotate list b: %d\n", temp->value);
+		ft_printf("rotate list b: %d\n", temp->index);
 		temp = temp->next;
 	}
 	ft_printf("\n");
@@ -71,7 +71,7 @@ void	test(t_list *list)
 	i = -1;
 	while (++i < list->a_len)
 	{
-		ft_printf("rotate rotate list a: %d\n", temp->value);
+		ft_printf("rotate rotate list a: %d\n", temp->index);
 		temp = temp->next;
 	}
 	ft_printf("\n");
@@ -79,7 +79,7 @@ void	test(t_list *list)
 	i = -1;
 	while (++i < list->b_len)
 	{
-		ft_printf("rotate rotate list b: %d\n", temp->value);
+		ft_printf("rotate rotate list b: %d\n", temp->index);
 		temp = temp->next;
 	}
 
@@ -90,7 +90,7 @@ void	test(t_list *list)
 	i = -1;
 	while (++i < list->a_len)
 	{
-		ft_printf("rev rotate list a: %d\n", temp->value);
+		ft_printf("rev rotate list a: %d\n", temp->index);
 		temp = temp->next;
 	}
 	ft_printf("\n");
@@ -99,7 +99,7 @@ void	test(t_list *list)
 	i = -1;
 	while (++i < list->b_len)
 	{
-		ft_printf("rev rotate list b: %d\n", temp->value);
+		ft_printf("rev rotate list b: %d\n", temp->index);
 		temp = temp->next;
 	}
 	ft_printf("\n");
@@ -108,7 +108,7 @@ void	test(t_list *list)
 	i = -1;
 	while (++i < list->a_len)
 	{
-		ft_printf("rev rev rotate list a: %d\n", temp->value);
+		ft_printf("rev rev rotate list a: %d\n", temp->index);
 		temp = temp->next;
 	}
 	ft_printf("\n");
@@ -116,7 +116,7 @@ void	test(t_list *list)
 	i = -1;
 	while (++i < list->b_len)
 	{
-		ft_printf("rev rev rotate list b: %d\n", temp->value);
+		ft_printf("rev rev rotate list b: %d\n", temp->index);
 		temp = temp->next;
 	}
 
@@ -127,7 +127,7 @@ void	test(t_list *list)
 	i = -1;
 	while (++i < list->a_len)
 	{
-		ft_printf("swap list a: %d\n", temp->value);
+		ft_printf("swap list a: %d\n", temp->index);
 		temp = temp->next;
 	}
 	ft_printf("\n");
@@ -136,7 +136,7 @@ void	test(t_list *list)
 	i = -1;
 	while (++i < list->b_len)
 	{
-		ft_printf("swap list b: %d\n", temp->value);
+		ft_printf("swap list b: %d\n", temp->index);
 		temp = temp->next;
 	}
 	ft_printf("\n");
@@ -145,7 +145,7 @@ void	test(t_list *list)
 	i = -1;
 	while (++i < list->a_len)
 	{
-		ft_printf("swap swap list a: %d\n", temp->value);
+		ft_printf("swap swap list a: %d\n", temp->index);
 		temp = temp->next;
 	}
 	ft_printf("\n");
@@ -153,7 +153,7 @@ void	test(t_list *list)
 	i = -1;
 	while (++i < list->b_len)
 	{
-		ft_printf("swap swap list b: %d\n", temp->value);
+		ft_printf("swap swap list b: %d\n", temp->index);
 		temp = temp->next;
 	}
 
@@ -164,7 +164,7 @@ void	test(t_list *list)
 	i = -1;
 	while (++i < list->a_len)
 	{
-		ft_printf("push a list a: %d\n", temp->value);
+		ft_printf("push a list a: %d\n", temp->index);
 		temp = temp->next;
 	}
 	ft_printf("\n");
@@ -172,7 +172,7 @@ void	test(t_list *list)
 	i = -1;
 	while (++i < list->b_len)
 	{
-		ft_printf("push a list b: %d\n", temp->value);
+		ft_printf("push a list b: %d\n", temp->index);
 		temp = temp->next;
 	}
 }
@@ -180,14 +180,13 @@ void	test(t_list *list)
 int	main(int argc, char **argv)
 {
 	t_list	*list;
-	int		*copy;
 
 	if (argc >= 2)
 	{
 		check_params(argc, argv);
 		list = init_list();
 		list->a = create_list(list, argc, argv);
-		copy = get_index(argc, argv, list);
+		get_index(argc, argv, list);
 
 		test(list);
 		// int i = -1;
@@ -197,7 +196,6 @@ int	main(int argc, char **argv)
 		// 	ft_printf("%d\n", temp->value);
 		// 	temp = temp->next;
 		// }
-		free(copy);
 		free_for_finish(list);
 	}
 	return (0);
