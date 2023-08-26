@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 09:33:47 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/26 14:15:49 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/08/26 16:41:25 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,6 +175,8 @@ void	test(t_list *list)
 		ft_printf("push a list b: %d\n", temp->index);
 		temp = temp->next;
 	}
+	push_a(list, list->a, list->b);
+	push_a(list, list->a, list->b);
 }
 
 int	main(int argc, char **argv)
@@ -187,15 +189,9 @@ int	main(int argc, char **argv)
 		list = init_list();
 		list->a = create_list(list, argc, argv);
 		get_index(argc, argv, list);
-
-		test(list);
-		// int i = -1;
-		// while (++i < list.a_len)
-		// {
-		// 	ft_printf("%d\n", i);
-		// 	ft_printf("%d\n", temp->value);
-		// 	temp = temp->next;
-		// }
+		// test(list);
+		if (is_sorted(list) == 0)
+			sorting(list);
 		free_for_finish(list);
 	}
 	return (0);

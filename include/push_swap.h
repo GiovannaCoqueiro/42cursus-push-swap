@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 06:54:55 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/26 14:14:30 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/08/26 16:34:12 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,11 @@ enum e_move
 
 typedef struct s_moves
 {
-	int		*moves;
-	int		index;
-	size_t	len;
+	int		b_len;
+	int		a_moves;
+	int		b_moves;
+	int		total_moves;
+	int		min_moves;
 }	t_moves;
 
 typedef struct s_node
@@ -56,7 +58,6 @@ typedef struct s_list
 	int		a_len;
 	t_node	*b;
 	int		b_len;
-	int		*copy;
 	t_moves	*moves;
 }	t_list;
 
@@ -64,16 +65,9 @@ void	check_params(int range, char **param);
 t_list	*init_list(void);
 t_node	*create_list(t_list *list, int range, char **param);
 void	get_index(int range, char **param, t_list *list);
-
-void	final_sort(t_list *list);
-int		is_sorted(t_node *node, int range);
-
-void	first_moves(t_list *list, t_moves *moves);
-void	just_three(t_list *list, t_moves *moves);
-int		*alloc_moves(t_moves *moves, int len);
-
-void	print_moves(t_moves *moves);
-void	print_moves_aux(t_moves *moves, int index);
+int		is_sorted(t_list *list);
+void	sorting(t_list *list);
+void	sort_three(t_list *list, t_node *node);
 
 int		swap_a(t_list *list, t_node *a);
 int		swap_b(t_list *list, t_node *b);
