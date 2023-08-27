@@ -68,6 +68,8 @@ void	get_index(int range, char **param, t_list *list);
 int		is_sorted(t_list *list);
 void	sorting(t_list *list);
 void	sort_three(t_list *list, t_node *node);
+void	fill_b(t_list *list, t_node *a, t_node *b);
+void	fill_a(t_list *list, t_node *a, t_node *b);
 
 int		swap_a(t_list *list, t_node *a);
 int		swap_b(t_list *list, t_node *b);

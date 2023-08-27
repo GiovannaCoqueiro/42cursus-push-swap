@@ -33,6 +33,16 @@ void	sorting(t_list *list)
 	else if (list->a_len == 3)
 		while (is_sorted(list) == 0)
 			sort_three(list, list->a);
+	else
+		if (list->a_len >= 5)
+			push_b(list, list->a, list->b);
+		push_b(list, list->a, list->b);
+		while (list->a_len > 3)
+			fill_b(list, list->a, list->b);
+		while (is_sorted(list) == 0)
+			sort_three(list, list->a);
+		while (list->b_len > 0)
+			fill_a(list, list->a, list->b);
 }
 
 void	sort_three(t_list *list, t_node *node)
@@ -47,4 +57,14 @@ void	sort_three(t_list *list, t_node *node)
 		swap_a(list, node);
 	else
 		revrol_a(list, node);
+}
+
+void	fill_b(t_list *list, t_node *a, t_node *b)
+{
+
+}
+
+void	fill_a(t_list *list, t_node *a, t_node *b)
+{
+
 }
