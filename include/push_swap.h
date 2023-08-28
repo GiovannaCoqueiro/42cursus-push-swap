@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 06:54:55 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/26 16:34:12 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/08/28 10:13:43 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,12 @@ enum e_move
 
 typedef struct s_moves
 {
-	int		b_len;
+	int		ra;
+	int		rb;
+	int		rr;
+	int		rra;
+	int		rrb;
+	int		rrr;
 	int		a_moves;
 	int		b_moves;
 	int		total_moves;
@@ -68,7 +73,8 @@ void	get_index(int range, char **param, t_list *list);
 int		is_sorted(t_list *list);
 void	sorting(t_list *list);
 void	sort_three(t_list *list, t_node *node);
-void	fill_b(t_list *list, t_node *a, t_node *b);
+t_moves	*moves_init(t_list *list);
+void	fill_b(t_list *list, t_moves *moves, t_node *a, t_node *b);
 void	fill_a(t_list *list, t_node *a, t_node *b);
 
 int		swap_a(t_list *list, t_node *a);
