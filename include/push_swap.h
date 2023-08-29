@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 06:54:55 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/29 09:39:02 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/08/29 09:46:08 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,18 +75,18 @@ void	sorting(t_list *list);
 void	sort_three(t_list *list, t_node *node);
 t_moves	*moves_init(t_list *list);
 void	fill_b(t_list *list, t_node *a, t_node *b);
-void	prepare_push_a(t_list *list, t_node *b);
+void	prepare_push_a(t_list *list);
 
 int		swap_a(t_list *list, t_node *a);
 int		swap_b(t_list *list, t_node *b);
 int		swap_swap(t_list *list);
 int		push_a(t_list *list, t_node *a, t_node *b);
 int		push_b(t_list *list, t_node *a, t_node *b);
-int		rol_a(t_list *list, t_node *a);
-int		rol_b(t_list *list, t_node *b);
+int		rol_a(t_list *list);
+int		rol_b(t_list *list);
 int		rol_rol(t_list *list);
-int		revrol_a(t_list *list, t_node *a);
-int		revrol_b(t_list *list, t_node *b);
+int		revrol_a(t_list *list);
+int		revrol_b(t_list *list);
 int		revrol_revrol(t_list *list);
 
 void	free_for_finish(t_list *list);

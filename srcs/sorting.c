@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 14:43:32 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/29 09:35:45 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/08/29 09:49:36 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,17 +38,17 @@ void	sorting(t_list *list)
 		if (list->a_len >= 5)
 		{
 			while (list->a->index >= list->a_len - 3)
-				rol_a(list, list->a);
+				rol_a(list);
 			push_b(list, list->a, list->b);
 		}
 		while (list->a->index >= list->a_len - 2)
-			rol_a(list, list->a);
+			rol_a(list);
 		push_b(list, list->a, list->b);
 		while (list->a_len > 3)
 			fill_b(list, list->a, list->b);
 		while (is_sorted(list) == 0)
 			sort_three(list, list->a);
-		prepare_push_a(list, list->b);
+		prepare_push_a(list);
 		while (list->b_len > 0)
 			push_a(list, list->a, list->b);
 	}
@@ -61,11 +61,11 @@ void	sort_three(t_list *list, t_node *node)
 	temp = node;
 	if (temp->index > temp->next->index && temp->next->index
 		< temp->next->next->index && temp->index > temp->next->next->index)
-		rol_a(list, node);
+		rol_a(list);
 	else if (temp->index > temp->next->index)
 		swap_a(list, node);
 	else
-		revrol_a(list, node);
+		revrol_a(list);
 }
 
 t_moves	*moves_init(t_list *list)
@@ -119,7 +119,7 @@ void	fill_b(t_list *list, t_node *a, t_node *b)
 	// free(moves);
 }
 
-void	prepare_push_a(t_list *list, t_node *b)
+void	prepare_push_a(t_list *list)
 {
 	int		index;
 	t_node	*temp;
@@ -133,19 +133,9 @@ void	prepare_push_a(t_list *list, t_node *b)
 		temp = temp->next;
 	}
 	if (index <= list->b_len / 2)
-	{
 		while (index-- > 0)
-		{
-			rol_b(list, b);
-			ft_printf("rol b list b index: %d\n", list->b->index);
-		}
-	}
+			rol_b(list);
 	else
-	{
 		while (index++ < list->b_len)
-		{
-			revrol_b(list, b);
-			ft_printf("rev rol b list b index: %d\n", list->b->index);
-		}
-	}
+			revrol_b(list);
 }
