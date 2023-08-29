@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 11:25:10 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/26 14:11:44 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/08/29 07:38:21 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ t_list	*init_list(void)
 	list->a_len = 0;
 	list->b = NULL;
 	list->b_len = 0;
+	list->moves = NULL;
 	return (list);
 }
 

@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 14:43:32 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/28 15:09:55 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/08/29 09:00:15 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@ int	is_sorted(t_list *list)
 
 void	sorting(t_list *list)
 {
-	t_moves	*moves;
-
 	if (list->a_len == 2)
 		swap_a(list, list->a);
 	else if (list->a_len == 3)
@@ -43,16 +41,16 @@ void	sorting(t_list *list)
 				rol_a(list, list->a);
 			push_b(list, list->a, list->b);
 		}
-		while (list->a->index >= list->a_len - 3)
+		while (list->a->index >= list->a_len - 2)
 			rol_a(list, list->a);
 		push_b(list, list->a, list->b);
-		moves = moves_init(list);
 		while (list->a_len > 3)
-			fill_b(list, list->moves, list->a, list->b);
+			fill_b(list, list->a, list->b);
 		while (is_sorted(list) == 0)
 			sort_three(list, list->a);
+		prepare_push_a(list, list->b);
 		while (list->b_len > 0)
-			fill_a(list, list->a, list->b);
+			push_a(list, list->a, list->b);
 	}
 }
 
@@ -87,28 +85,57 @@ t_moves	*moves_init(t_list *list)
 	list->moves->b_moves = 0;
 	list->moves->min_moves = 0;
 	list->moves->total_moves = 0;
+	return (moves);
 }
 
-void	fill_b(t_list *list, t_moves *moves, t_node *a, t_node *b)
+void	fill_b(t_list *list, t_node *a, t_node *b)
 {
-	int		a_count;
-	int		b_count;
+	// int		a_count;
+	// int		b_count;
+	// t_node	*temp;
+	// t_moves	*moves;
+
+	// moves = moves_init(list);
+	// a_count = -1;
+	// temp = list->a;
+	// while (++a_count < list->a_len)
+	// {
+	// 	b_count = -1;
+	// 	if (temp->index < list->a_len - 3)
+	// 	{
+	// 		if (a_count <= list->a_len / 2)
+	// 		{
+	// 			moves->ra = a_count;
+	// 			while (++b_count < list->b_len)
+	// 			{
+					
+	// 			}
+	// 		}
+	// 		else
+	// 			moves->rra = list->a_len - a_count;
+	// 	}
+	// }
+	push_b(list, a, b);
+	// free(moves);
+}
+
+void	prepare_push_a(t_list *list, t_node *b)
+{
+	int		index;
 	t_node	*temp;
 
-	a_count = -1;
-	while (++a_count < list->a_len)
+	index = -1;
+	temp = list->b;
+	while (++index < list->b_len)
 	{
-		temp = list->a;
-		b_count = -1;
-		while (++b_count < list->b_len)
-		{
-			if (list
-		}
+		if (temp->index == list->a->index - 1)
+			break ;
+		temp = temp->next;
 	}
-	push_b(list, a, b);
-}
-
-void	fill_a(t_list *list, t_node *a, t_node *b)
-{
-	push_a(list, a, b);
+	if (index <= list->b_len / 2)
+		while (index-- > 0)
+			rol_b(list, b);
+	else
+		while (index++ < list->b_len)
+			revrol_b(list, b);
 }

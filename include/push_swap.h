@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 06:54:55 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/28 10:13:43 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/08/29 07:36:34 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,8 @@ int		is_sorted(t_list *list);
 void	sorting(t_list *list);
 void	sort_three(t_list *list, t_node *node);
 t_moves	*moves_init(t_list *list);
-void	fill_b(t_list *list, t_moves *moves, t_node *a, t_node *b);
-void	fill_a(t_list *list, t_node *a, t_node *b);
+void	fill_b(t_list *list, t_node *a, t_node *b);
+void	prepare_push_a(t_list *list, t_node *b);
 
 int		swap_a(t_list *list, t_node *a);
 int		swap_b(t_list *list, t_node *b);
