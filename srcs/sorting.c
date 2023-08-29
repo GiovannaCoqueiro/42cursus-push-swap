@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 14:43:32 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/29 09:00:15 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/08/29 09:35:45 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,9 +133,19 @@ void	prepare_push_a(t_list *list, t_node *b)
 		temp = temp->next;
 	}
 	if (index <= list->b_len / 2)
+	{
 		while (index-- > 0)
+		{
 			rol_b(list, b);
+			ft_printf("rol b list b index: %d\n", list->b->index);
+		}
+	}
 	else
+	{
 		while (index++ < list->b_len)
+		{
 			revrol_b(list, b);
+			ft_printf("rev rol b list b index: %d\n", list->b->index);
+		}
+	}
 }
