@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 14:43:32 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/30 16:49:32 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/08/30 17:47:49 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,23 +79,17 @@ void	fill_b(t_list *list)
 	moves = moves_init(list);
 	a_count = -1;
 	temp = list->a;
-	ft_printf("fill b:\n");
 	while (++a_count < list->a_len)
 	{
 		if (temp->index < list->total_len - 3)
 		{
 			buffer_a = take_a_moves(list, moves, a_count);
 			buffer_b = take_b_moves(list, moves, temp->index);
-			simplify_moves(list, buffer_a, buffer_b);
+			simplify_moves(moves, buffer_a, buffer_b);
 		}
 		temp = temp->next;
 	}
-	// if (moves->a_moves > 0)
-	// 	while (moves->a_moves-- > 0)
-	// 		rol_a(list);
-	// else
-	// 	while (moves->a_moves++ < 0)
-	// 		revrol_a(list);
+	prepare_push_b(list, moves);
 	push_b(list, list->a, list->b);
 	free(moves);
 }
@@ -119,4 +113,16 @@ void	prepare_push_a(t_list *list)
 	else
 		while (index++ < list->b_len)
 			revrol_b(list);
+}
+
+void	prepare_push_b(t_list *list, t_moves *moves)
+{
+	while (moves->ra-- > 0)
+		rol_a(list);
+	while (moves->rra-- > 0)
+		revrol_a(list);
+	while (moves->rb-- > 0)
+		rol_b(list);
+	while (moves->rrb-- > 0)
+		revrol_b(list);
 }
