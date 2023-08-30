@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 11:25:10 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/29 07:38:21 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/08/30 16:09:02 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static t_node	*new_node(long nbr);
 
-t_list	*init_list(void)
+t_list	*init_list(int range)
 {
 	t_list	*list;
 
@@ -25,7 +25,8 @@ t_list	*init_list(void)
 	list->a_len = 0;
 	list->b = NULL;
 	list->b_len = 0;
-	list->moves = NULL;
+	list->b_max = 0;
+	list->b_min = range;
 	return (list);
 }
 
@@ -45,6 +46,7 @@ t_node	*create_list(t_list *list, int range, char **param)
 		list->a_len++;
 		temp = temp->next;
 	}
+	list->total_len = list->a_len;
 	temp->next = node;
 	return (node);
 }

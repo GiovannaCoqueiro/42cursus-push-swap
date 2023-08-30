@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 09:33:47 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/29 09:30:56 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/08/30 16:08:37 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -186,14 +186,14 @@ int	main(int argc, char **argv)
 	if (argc >= 2)
 	{
 		check_params(argc, argv);
-		list = init_list();
+		list = init_list(argc);
 		list->a = create_list(list, argc, argv);
 		get_index(argc, argv, list);
-		test(list);
+		// test(list);
 		if (is_sorted(list) == 0)
 			sorting(list);
-		ft_printf("after the changes:\n");
-		test(list);
+		// ft_printf("after the changes:\n");
+		// test(list);
 		free_for_finish(list);
 	}
 	return (0);

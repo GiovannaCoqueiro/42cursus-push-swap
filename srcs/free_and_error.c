@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 15:26:37 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/28 08:23:32 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/08/30 16:07:10 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ void	free_for_finish(t_list *list)
 		free_node(&list->a, list->a_len);
 	if (list->b != NULL)
 		free_node(&list->b, list->b_len);
-	if (list->moves != NULL)
-		free(list->moves);
 	free(list);
 }
 

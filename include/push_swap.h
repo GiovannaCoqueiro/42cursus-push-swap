@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 06:54:55 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/29 09:46:08 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/08/30 16:09:21 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,18 +63,22 @@ typedef struct s_list
 	int		a_len;
 	t_node	*b;
 	int		b_len;
-	t_moves	*moves;
+	int		b_max;
+	int		b_min;
+	int		total_len;
 }	t_list;
 
 void	check_params(int range, char **param);
-t_list	*init_list(void);
+t_list	*init_list(int range);
 t_node	*create_list(t_list *list, int range, char **param);
 void	get_index(int range, char **param, t_list *list);
 int		is_sorted(t_list *list);
 void	sorting(t_list *list);
 void	sort_three(t_list *list, t_node *node);
 t_moves	*moves_init(t_list *list);
-void	fill_b(t_list *list, t_node *a, t_node *b);
+void	fill_b(t_list *list);
+int		take_a_moves(t_list *list, t_moves *moves, int count);
+int		take_b_moves(t_list *list, t_moves *moves, int index);
 void	prepare_push_a(t_list *list);
 
 int		swap_a(t_list *list, t_node *a);

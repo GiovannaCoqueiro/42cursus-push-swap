@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 14:43:32 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/29 09:49:36 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/08/30 16:49:32 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,15 @@ void	sorting(t_list *list)
 	{
 		if (list->a_len >= 5)
 		{
-			while (list->a->index >= list->a_len - 3)
+			while (list->a->index >= list->total_len - 3)
 				rol_a(list);
 			push_b(list, list->a, list->b);
 		}
-		while (list->a->index >= list->a_len - 2)
+		while (list->a->index >= list->total_len - 3)
 			rol_a(list);
 		push_b(list, list->a, list->b);
 		while (list->a_len > 3)
-			fill_b(list, list->a, list->b);
+			fill_b(list);
 		while (is_sorted(list) == 0)
 			sort_three(list, list->a);
 		prepare_push_a(list);
@@ -68,55 +68,36 @@ void	sort_three(t_list *list, t_node *node)
 		revrol_a(list);
 }
 
-t_moves	*moves_init(t_list *list)
+void	fill_b(t_list *list)
 {
+	int		a_count;
+	int		buffer_a;
+	int		buffer_b;
 	t_moves	*moves;
+	t_node	*temp;
 
-	moves = malloc(sizeof(t_moves));
-	if (moves == NULL)
-		error_check(4, list);
-	list->moves->ra = 0;
-	list->moves->rb = 0;
-	list->moves->rr = 0;
-	list->moves->rra = 0;
-	list->moves->rrb = 0;
-	list->moves->rrr = 0;
-	list->moves->a_moves = 0;
-	list->moves->b_moves = 0;
-	list->moves->min_moves = 0;
-	list->moves->total_moves = 0;
-	return (moves);
-}
-
-void	fill_b(t_list *list, t_node *a, t_node *b)
-{
-	// int		a_count;
-	// int		b_count;
-	// t_node	*temp;
-	// t_moves	*moves;
-
-	// moves = moves_init(list);
-	// a_count = -1;
-	// temp = list->a;
-	// while (++a_count < list->a_len)
-	// {
-	// 	b_count = -1;
-	// 	if (temp->index < list->a_len - 3)
-	// 	{
-	// 		if (a_count <= list->a_len / 2)
-	// 		{
-	// 			moves->ra = a_count;
-	// 			while (++b_count < list->b_len)
-	// 			{
-					
-	// 			}
-	// 		}
-	// 		else
-	// 			moves->rra = list->a_len - a_count;
-	// 	}
-	// }
-	push_b(list, a, b);
-	// free(moves);
+	moves = moves_init(list);
+	a_count = -1;
+	temp = list->a;
+	ft_printf("fill b:\n");
+	while (++a_count < list->a_len)
+	{
+		if (temp->index < list->total_len - 3)
+		{
+			buffer_a = take_a_moves(list, moves, a_count);
+			buffer_b = take_b_moves(list, moves, temp->index);
+			simplify_moves(list, buffer_a, buffer_b);
+		}
+		temp = temp->next;
+	}
+	// if (moves->a_moves > 0)
+	// 	while (moves->a_moves-- > 0)
+	// 		rol_a(list);
+	// else
+	// 	while (moves->a_moves++ < 0)
+	// 		revrol_a(list);
+	push_b(list, list->a, list->b);
+	free(moves);
 }
 
 void	prepare_push_a(t_list *list)
