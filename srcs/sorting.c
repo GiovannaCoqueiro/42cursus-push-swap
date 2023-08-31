@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 14:43:32 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/31 13:22:35 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/08/31 14:34:49 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ static t_moves	*moves_init(t_list *list)
 
 	moves = malloc(sizeof(t_moves));
 	if (moves == NULL)
-		error_check(4, list);
+		error_check(list);
 	moves->ra = 0;
 	moves->rb = 0;
 	moves->rr = 0;

@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 08:41:57 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/23 13:16:41 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/08/31 14:33:14 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,16 @@ void	check_params(int range, char **param)
 	while (++count < range)
 	{
 		len = ft_strlen(param[count]);
+		if (len < 1)
+			error_check(NULL);
 		if (check_number(param[count], len) == 0)
-			error_check(1, NULL);
+			error_check(NULL);
 		temp = count;
 		while (--temp >= 1 && count > 1)
 			if (ft_strcmp(param[count], param[temp]) == 0)
-				error_check(2, NULL);
+				error_check(NULL);
 		if (check_value(param[count]) == 0)
-			error_check(3, NULL);
+			error_check(NULL);
 	}
 }
 

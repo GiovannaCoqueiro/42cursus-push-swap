@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 14:11:06 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/31 07:08:58 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/08/31 14:33:59 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	get_index(int range, char **param, t_list *list)
 
 	copy = malloc(sizeof(int) * range - 1);
 	if (copy == NULL)
-		error_check(4, list);
+		error_check(list);
 	i = -1;
 	while (++i < range - 1)
 		copy[i] = ft_atol(param[i + 1]);

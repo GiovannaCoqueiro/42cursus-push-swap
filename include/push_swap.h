@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 06:54:55 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/31 13:19:44 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/08/31 14:33:01 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,6 @@ int		revrol_revrol(t_list *list);
 
 void	free_for_finish(t_list *list);
 void	free_node(t_node **node, int len);
-void	error_check(int i, t_list *list);
+void	error_check(t_list *list);
 
 #endif

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_utils.c                                       :+:      :+:    :+:   */
+/*   create_list.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 11:25:10 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/30 16:09:02 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/08/31 14:33:46 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_list	*init_list(int range)
 
 	list = malloc(sizeof(t_list));
 	if (list == NULL)
-		error_check(4, NULL);
+		error_check(NULL);
 	list->a = NULL;
 	list->a_len = 0;
 	list->b = NULL;

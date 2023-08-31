@@ -1,44 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_and_error.c                                   :+:      :+:    :+:   */
+/*   checker_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/16 15:26:37 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/31 14:32:49 by gcoqueir         ###   ########.fr       */
+/*   Created: 2023/08/31 14:24:56 by gcoqueir          #+#    #+#             */
+/*   Updated: 2023/08/31 14:26:30 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_for_finish(t_list *list)
+int	main(int argc, char **argv)
 {
-	if (list->a != NULL)
-		free_node(&list->a, list->a_len);
-	if (list->b != NULL)
-		free_node(&list->b, list->b_len);
-	free(list);
-}
+	t_list	*list;
 
-void	free_node(t_node **node, int len)
-{
-	int		i;
-	t_node	*temp;
-
-	i = -1;
-	while (++i < len)
+	if (argc >= 2)
 	{
-		temp = *node;
-		*node = temp->next;
-		free(temp);
-	}
-}
-
-void	error_check(t_list *list)
-{
-	if (list != NULL)
+		check_params(argc, argv);
+		list = init_list(argc);
+		list->a = create_list(list, argc, argv);
+		get_index(argc, argv, list);
+		if (is_sorted(list) == 0)
+			sorting(list);
 		free_for_finish(list);
-	ft_printf("Error\n");
-	exit (1);
+	}
+	return (0);
 }
