@@ -6,7 +6,7 @@
 #    By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/10 08:58:42 by gcoqueir          #+#    #+#              #
-#    Updated: 2023/08/30 15:40:55 by gcoqueir         ###   ########.fr        #
+#    Updated: 2023/08/31 07:37:06 by gcoqueir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,10 +19,11 @@ INC = ./include
 LIBFT = ./libft
 SRCS = srcs/
 BONUS_SRCS = bonus/
-FILES = $(SRCS)push_swap.c $(SRCS)program_call_check.c $(SRCS)init_utils.c \
-		$(SRCS)get_index.c $(SRCS)sorting.c $(SRCS)fill_b_utils.c \
-		$(SRCS)swap_moves.c $(SRCS)push_moves.c $(SRCS)rotate_moves.c \
-		$(SRCS)reverse_moves.c $(SRCS)free_and_error.c
+FILES = $(SRCS)push_swap.c $(SRCS)program_call_check.c $(SRCS)create_list.c \
+		$(SRCS)get_index.c $(SRCS)sorting.c $(SRCS)take_moves.c \
+		$(SRCS)simplify_moves.c $(SRCS)prepare_push.c $(SRCS)swap_moves.c \
+		$(SRCS)push_moves.c $(SRCS)rotate_moves.c $(SRCS)reverse_moves.c \
+		$(SRCS)free_and_error.c
 OBJS = $(FILES:.c=.o)
 BONUS_FILES = $(BONUS_SRCS)push_swap_bonus.c
 BONUS_OBJS = $(BONUS_FILES:.c=.o)

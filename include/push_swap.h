@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 06:54:55 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/30 17:47:07 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/08/31 07:34:32 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 
 # define INTMAX 2147483647
 # define INTMIN -2147483648
-
 
 enum e_move
 {
@@ -75,15 +74,11 @@ void	get_index(int range, char **param, t_list *list);
 int		is_sorted(t_list *list);
 void	sorting(t_list *list);
 void	sort_three(t_list *list, t_node *node);
-t_moves	*moves_init(t_list *list);
 void	fill_b(t_list *list);
 int		take_a_moves(t_list *list, t_moves *moves, int count);
 int		take_b_moves(t_list *list, t_moves *moves, int index);
 void	simplify_moves(t_moves *moves, int a_moves, int b_moves);
 void	prepare_push_b(t_list *list, t_moves *moves);
-
-int		abs_nbr(int nbr);
-
 void	prepare_push_a(t_list *list);
 
 int		swap_a(t_list *list, t_node *a);

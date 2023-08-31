@@ -6,11 +6,13 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 14:43:32 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/31 07:00:42 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/08/31 07:36:08 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static t_moves	*moves_init(t_list *list);
 
 int	is_sorted(t_list *list)
 {
@@ -94,35 +96,22 @@ void	fill_b(t_list *list)
 	free(moves);
 }
 
-void	prepare_push_a(t_list *list)
+static t_moves	*moves_init(t_list *list)
 {
-	int		index;
-	t_node	*temp;
+	t_moves	*moves;
 
-	index = -1;
-	temp = list->b;
-	while (++index < list->b_len)
-	{
-		if (temp->index == list->a->index - 1)
-			break ;
-		temp = temp->next;
-	}
-	if (index <= list->b_len / 2)
-		while (index-- > 0)
-			rol_b(list);
-	else
-		while (index++ < list->b_len)
-			revrol_b(list);
-}
-
-void	prepare_push_b(t_list *list, t_moves *moves)
-{
-	while (moves->ra-- > 0)
-		rol_a(list);
-	while (moves->rra-- > 0)
-		revrol_a(list);
-	while (moves->rb-- > 0)
-		rol_b(list);
-	while (moves->rrb-- > 0)
-		revrol_b(list);
+	moves = malloc(sizeof(t_moves));
+	if (moves == NULL)
+		error_check(4, list);
+	moves->ra = 0;
+	moves->rb = 0;
+	moves->rr = 0;
+	moves->rra = 0;
+	moves->rrb = 0;
+	moves->rrr = 0;
+	moves->a_moves = list->total_len;
+	moves->b_moves = list->total_len;
+	moves->min_moves = list->total_len;
+	moves->total_moves = 0;
+	return (moves);
 }
