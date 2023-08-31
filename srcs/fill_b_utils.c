@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 15:33:57 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/30 17:47:24 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/08/31 06:56:44 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int	take_b_moves(t_list *list, t_moves *moves, int index)
 	int		b_count;
 	int		buffer;
 	t_node	*temp;
+	t_node	*prev;
 
 	temp = list->b;
 	buffer = list->total_len;
@@ -60,10 +61,13 @@ int	take_b_moves(t_list *list, t_moves *moves, int index)
 	}
 	else
 	{
-		while (b_count++ < list->b_len && buffer != 1)
+		prev = temp;
+		while (prev->next != temp)
+			prev = prev->next;
+		while (prev->index < index || temp->index > index)
 		{
-			if (index - temp->index < buffer)
-				buffer = index - temp->index;
+			b_count++;
+			prev = temp;
 			temp = temp->next;
 		}
 	}

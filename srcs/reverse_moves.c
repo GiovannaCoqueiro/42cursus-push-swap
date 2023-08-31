@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 06:44:41 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/29 09:44:10 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/08/31 07:02:48 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	revrol_a(t_list *list)
 	{
 		while (list->a->next != temp)
 			list->a = list->a->next;
+		ft_printf("rra\n");
 		return (RRA);
 	}
 	return (0);
@@ -35,6 +36,7 @@ int	revrol_b(t_list *list)
 	{
 		while (list->b->next != temp)
 			list->b = list->b->next;
+		ft_printf("rrb\n");
 		return (RRB);
 	}
 	return (0);

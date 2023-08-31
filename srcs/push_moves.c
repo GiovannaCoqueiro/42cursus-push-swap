@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 17:26:11 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/30 16:12:13 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/08/31 07:03:05 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int	push_a(t_list *list, t_node *a, t_node *b)
 		iter->next = temp;
 		temp->next = a;
 		list->a = temp;
+		ft_printf("pa\n");
 		return (PA);
 	}
 	return (0);
@@ -60,6 +61,7 @@ int	push_b(t_list *list, t_node *a, t_node *b)
 		iter->next = list->a->next;
 		list->a = iter->next;
 		push_b_utils(list, b, temp);
+		ft_printf("pb\n");
 		return (PB);
 	}
 	return (0);
