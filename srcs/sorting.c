@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 14:43:32 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/31 14:34:49 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/09/04 07:37:11 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,7 @@ void	sorting(t_list *list)
 	else
 	{
 		if (list->a_len >= 5)
-		{
-			while (list->a->index >= list->total_len - 3)
-				rol_a(list, 0);
 			push_b(list, list->a, list->b);
-		}
-		while (list->a->index >= list->total_len - 3)
-			rol_a(list, 0);
 		push_b(list, list->a, list->b);
 		while (list->a_len > 3)
 			fill_b(list);
@@ -52,7 +46,8 @@ void	sorting(t_list *list)
 			sort_three(list, list->a);
 		prepare_push_a(list);
 		while (list->b_len > 0)
-			push_a(list, list->a, list->b);
+			fill_a(list);
+		put_zero_on_top(list);
 	}
 }
 
@@ -83,12 +78,9 @@ void	fill_b(t_list *list)
 	temp = list->a;
 	while (++a_count < list->a_len)
 	{
-		if (temp->index < list->total_len - 3)
-		{
-			buffer_a = take_a_moves(list, moves, a_count);
-			buffer_b = take_b_moves(list, moves, temp->index);
-			simplify_moves(moves, buffer_a, buffer_b);
-		}
+		buffer_a = take_a_moves(list, moves, a_count);
+		buffer_b = take_b_moves(list, moves, temp->index);
+		simplify_moves(moves, buffer_a, buffer_b);
 		temp = temp->next;
 	}
 	prepare_push_b(list, moves);

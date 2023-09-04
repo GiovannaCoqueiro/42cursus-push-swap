@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 17:26:11 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/31 07:03:05 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/08/31 19:20:07 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@ int	push_a(t_list *list, t_node *a, t_node *b)
 
 	if (list->b_len >= 1)
 	{
+		if (list->b->index < list->a_min)
+			list->a_min = list->b->index;
+		if (list->b->index > list->a_max)
+			list->a_max = list->b->index;
 		list->a_len++;
 		list->b_len--;
 		temp = b;

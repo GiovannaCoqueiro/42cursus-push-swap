@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 06:54:55 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/31 14:33:01 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/09/04 07:37:02 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ typedef struct s_list
 {
 	t_node	*a;
 	int		a_len;
+	int		a_max;
+	int		a_min;
 	t_node	*b;
 	int		b_len;
 	int		b_max;
@@ -80,6 +82,8 @@ int		take_b_moves(t_list *list, t_moves *moves, int index);
 void	simplify_moves(t_moves *moves, int a_moves, int b_moves);
 void	prepare_push_b(t_list *list, t_moves *moves);
 void	prepare_push_a(t_list *list);
+void	fill_a(t_list *list);
+void	put_zero_on_top(t_list *list);
 
 int		swap_a(t_list *list, t_node *a, int i);
 int		swap_b(t_list *list, t_node *b, int i);
