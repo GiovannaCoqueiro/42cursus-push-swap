@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 06:54:55 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/09/04 07:37:02 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/09/04 08:54:26 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@ typedef struct s_list
 void	check_params(int range, char **param);
 t_list	*init_list(int range);
 t_node	*create_list(t_list *list, int range, char **param);
+t_node	*new_node(long nbr);
+t_node	*last_node(t_node *node);
 void	get_index(int range, char **param, t_list *list);
 int		is_sorted(t_list *list);
 void	sorting(t_list *list);
@@ -80,11 +82,9 @@ void	fill_b(t_list *list);
 int		take_a_moves(t_list *list, t_moves *moves, int count);
 int		take_b_moves(t_list *list, t_moves *moves, int index);
 void	simplify_moves(t_moves *moves, int a_moves, int b_moves);
-void	prepare_push_b(t_list *list, t_moves *moves);
 void	prepare_push_a(t_list *list);
 void	fill_a(t_list *list);
 void	put_zero_on_top(t_list *list);
-
 int		swap_a(t_list *list, t_node *a, int i);
 int		swap_b(t_list *list, t_node *b, int i);
 int		swap_swap(t_list *list);
@@ -96,7 +96,6 @@ int		rol_rol(t_list *list);
 int		revrol_a(t_list *list, int i);
 int		revrol_b(t_list *list, int i);
 int		revrol_revrol(t_list *list);
-
 void	free_for_finish(t_list *list);
 void	free_node(t_node **node, int len);
 void	error_check(t_list *list);

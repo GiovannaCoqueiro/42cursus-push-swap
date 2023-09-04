@@ -6,13 +6,11 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 11:25:10 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/31 19:22:08 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/09/04 08:21:05 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static t_node	*new_node(long nbr);
 
 t_list	*init_list(int range)
 {
@@ -53,7 +51,7 @@ t_node	*create_list(t_list *list, int range, char **param)
 	return (node);
 }
 
-static t_node	*new_node(long nbr)
+t_node	*new_node(long nbr)
 {
 	t_node	*node;
 

@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 15:33:57 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/31 19:32:05 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/09/04 08:40:32 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,7 @@ static int	count_moves(t_list *list, t_node *temp, int index, int i)
 	}
 	else
 	{
-		prev = temp;
-		while (prev->next != temp)
-			prev = prev->next;
+		prev = last_node(temp);
 		while (prev->index < index || temp->index > index)
 		{
 			count++;
