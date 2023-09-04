@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 06:54:55 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/09/04 08:54:26 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/09/04 15:51:52 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,17 @@
 # define INTMAX 2147483647
 # define INTMIN -2147483648
 
-enum e_move
-{
-	SA = 1,
-	SB,
-	SS,
-	PA,
-	PB,
-	RA,
-	RB,
-	RR,
-	RRA,
-	RRB,
-	RRR,
-};
+# define SA "sa\n"
+# define SB "sb\n"
+# define SS "ss\n"
+# define PA "pa\n"
+# define PB "pb\n"
+# define RA "ra\n"
+# define RB "rb\n"
+# define RR "rr\n"
+# define RRA "rra\n"
+# define RRB "rrb\n"
+# define RRR "rrr\n"
 
 typedef struct s_moves
 {
@@ -67,6 +64,7 @@ typedef struct s_list
 	int		b_max;
 	int		b_min;
 	int		total_len;
+	char	*cmd;
 }	t_list;
 
 void	check_params(int range, char **param);
@@ -85,19 +83,24 @@ void	simplify_moves(t_moves *moves, int a_moves, int b_moves);
 void	prepare_push_a(t_list *list);
 void	fill_a(t_list *list);
 void	put_zero_on_top(t_list *list);
-int		swap_a(t_list *list, t_node *a, int i);
-int		swap_b(t_list *list, t_node *b, int i);
-int		swap_swap(t_list *list);
-int		push_a(t_list *list, t_node *a, t_node *b);
-int		push_b(t_list *list, t_node *a, t_node *b);
-int		rol_a(t_list *list, int i);
-int		rol_b(t_list *list, int i);
-int		rol_rol(t_list *list);
-int		revrol_a(t_list *list, int i);
-int		revrol_b(t_list *list, int i);
-int		revrol_revrol(t_list *list);
+void	swap_a(t_list *list, t_node *a, int i);
+void	swap_b(t_list *list, t_node *b, int i);
+void	swap_swap(t_list *list, int i);
+void	push_a(t_list *list, t_node *a, t_node *b, int i);
+void	push_b(t_list *list, t_node *a, t_node *b, int i);
+void	rol_a(t_list *list, int i);
+void	rol_b(t_list *list, int i);
+void	rol_rol(t_list *list, int i);
+void	revrol_a(t_list *list, int i);
+void	revrol_b(t_list *list, int i);
+void	revrol_revrol(t_list *list, int i);
 void	free_for_finish(t_list *list);
 void	free_node(t_node **node, int len);
 void	error_check(t_list *list);
+
+/*bonus functions*/
+void	take_instructions(t_list *list);
+void	exec_move(t_list *list, char *line);
+void	print_result(t_list *list);
 
 #endif

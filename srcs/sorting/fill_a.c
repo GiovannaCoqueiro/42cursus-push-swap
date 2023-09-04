@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 07:36:21 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/09/04 09:24:30 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/09/04 14:10:17 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	fill_a(t_list *list)
 		}
 	}
 	make_rotation(count, list);
-	push_a(list, list->a, list->b);
+	push_a(list, list->a, list->b, 1);
 }
 
 void	put_zero_on_top(t_list *list)
@@ -79,8 +79,8 @@ static void	make_rotation(int count, t_list *list)
 {
 	if (count <= list->a_len / 2)
 		while (count-- > 0)
-			rol_a(list, 0);
+			rol_a(list, 1);
 	else
 		while (count++ < list->a_len)
-			revrol_a(list, 0);
+			revrol_a(list, 1);
 }

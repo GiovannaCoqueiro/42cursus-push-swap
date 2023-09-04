@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 17:26:11 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/09/04 08:21:59 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/09/04 14:07:44 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	push_b_utils(t_list *list, t_node *b, t_node *temp);
 
-int	push_a(t_list *list, t_node *a, t_node *b)
+void	push_a(t_list *list, t_node *a, t_node *b, int i)
 {
 	t_node	*temp;
 	t_node	*last;
@@ -35,13 +35,12 @@ int	push_a(t_list *list, t_node *a, t_node *b)
 		last->next = temp;
 		temp->next = a;
 		list->a = temp;
-		ft_printf("pa\n");
-		return (PA);
+		if (i == 1)
+			ft_printf("pa\n");
 	}
-	return (0);
 }
 
-int	push_b(t_list *list, t_node *a, t_node *b)
+void	push_b(t_list *list, t_node *a, t_node *b, int i)
 {
 	t_node	*temp;
 	t_node	*last;
@@ -59,10 +58,9 @@ int	push_b(t_list *list, t_node *a, t_node *b)
 		last->next = list->a->next;
 		list->a = last->next;
 		push_b_utils(list, b, temp);
-		ft_printf("pb\n");
-		return (PB);
+		if (i == 1)
+			ft_printf("pb\n");
 	}
-	return (0);
 }
 
 static void	push_b_utils(t_list *list, t_node *b, t_node *temp)
@@ -82,14 +80,4 @@ static void	push_b_utils(t_list *list, t_node *b, t_node *temp)
 		temp->next = b;
 		list->b = temp;
 	}
-}
-
-t_node	*last_node(t_node *node)
-{
-	t_node	*last;
-
-	last = node;
-	while (last->next != node)
-		last = last->next;
-	return (last);
 }

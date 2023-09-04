@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 08:38:12 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/09/04 08:39:40 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/09/04 14:09:55 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	fill_b(t_list *list)
 		temp = temp->next;
 	}
 	prepare_push_b(list, moves);
-	push_b(list, list->a, list->b);
+	push_b(list, list->a, list->b, 1);
 	free(moves);
 }
 
@@ -61,15 +61,15 @@ static t_moves	*moves_init(t_list *list)
 static void	prepare_push_b(t_list *list, t_moves *moves)
 {
 	while (moves->ra-- > 0)
-		rol_a(list, 0);
+		rol_a(list, 1);
 	while (moves->rb-- > 0)
-		rol_b(list, 0);
+		rol_b(list, 1);
 	while (moves->rr-- > 0)
-		rol_rol(list);
+		rol_rol(list, 1);
 	while (moves->rra-- > 0)
-		revrol_a(list, 0);
+		revrol_a(list, 1);
 	while (moves->rrb-- > 0)
-		revrol_b(list, 0);
+		revrol_b(list, 1);
 	while (moves->rrr-- > 0)
-		revrol_revrol(list);
+		revrol_revrol(list, 1);
 }

@@ -6,7 +6,7 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 15:26:37 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/08/31 14:32:49 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/09/04 15:50:55 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	free_for_finish(t_list *list)
 		free_node(&list->a, list->a_len);
 	if (list->b != NULL)
 		free_node(&list->b, list->b_len);
+	if (list->cmd != NULL)
+		free(list->cmd);
 	free(list);
 }
 
@@ -39,6 +41,6 @@ void	error_check(t_list *list)
 {
 	if (list != NULL)
 		free_for_finish(list);
-	ft_printf("Error\n");
+	ft_putendl_fd("Error", 2);
 	exit (1);
 }

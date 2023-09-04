@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker_bonus.c                                    :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/31 14:24:56 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/09/04 14:51:56 by gcoqueir         ###   ########.fr       */
+/*   Created: 2023/05/05 09:18:28 by gcoqueir          #+#    #+#             */
+/*   Updated: 2023/05/05 09:18:29 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+void	ft_putendl_fd(char *s, int fd)
 {
-	t_list	*list;
+	int	count;
 
-	if (argc >= 2)
-	{
-		check_params(argc, argv);
-		list = init_list(argc);
-		list->a = create_list(list, argc, argv);
-		get_index(argc, argv, list);
-		take_instructions(list);
-		print_result(list);
-		free_for_finish(list);
-	}
-	return (0);
+	count = -1;
+	while (s[++count] != '\0')
+		write(fd, &s[count], 1);
+	write(fd, "\n", 1);
 }
