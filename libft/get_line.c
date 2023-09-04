@@ -6,11 +6,13 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 15:07:52 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/09/04 16:37:05 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/09/04 17:27:44 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static void	*free_and_return(char *str);
 
 char	*get_line(int fd)
 {
@@ -27,18 +29,18 @@ char	*get_line(int fd)
 	{
 		bytes_read = read(fd, temp, BUFFER_SIZE);
 		if (bytes_read < 0)
-		{
-			free (temp);
-			return (NULL);
-		}
+			return (free_and_return(temp));
 		temp[bytes_read] = '\0';
 		str = ft_strjoin(str, temp);
 	}
 	free(temp);
 	if (ft_strcmp("\0", str) == 0)
-	{
-		free(str);
-		return (NULL);
-	}
+		return (free_and_return(str));
 	return (str);
+}
+
+static void	*free_and_return(char *str)
+{
+	free(str);
+	return (NULL);
 }
