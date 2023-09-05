@@ -32,6 +32,7 @@
 <p>
   At the beginning you have two stacks (A and B) to use. Stack A must be filled with the given list of numbers and stack B must be empty.
 </p>
+
 | Movement | How it works |
 | :---: | :---: |
 | pa | Take the first element at the top of B and put it at the top of A. Do nothing if B is empty. |
@@ -48,7 +49,7 @@
 
 you can run it with:
 ```sh
-  $> ./checker <list_of_numbers>
+  $> ./push_swap <list_of_numbers>
 ```
 
 <p>
