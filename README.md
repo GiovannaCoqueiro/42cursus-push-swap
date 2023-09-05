@@ -34,7 +34,7 @@
 </p>
 
 | Movement | How it works |
-| :---: | :---: |
+| :---: | :--- |
 | pa | Take the first element at the top of B and put it at the top of A. Do nothing if B is empty. |
 | pb | Take the first element at the top of A and put it at the top of B. Do nothing if A is empty. |
 | sa | Swap the first 2 elements at the top of stack A. Do nothing if there is only one or no elements. |
