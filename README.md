@@ -64,10 +64,12 @@ you can run it with:
 <p>
 	Write a checker program to verify if a unsorted list can be sorted with a given list of move instructions.
 </p>
-  you can run it with:
+
+you can run it with:
 ```sh
   $> ./checker <list_of_numbers>
 ```
+
 <p>
   And then you'll have to type the list of move instructions you want the program to execute to sort the numbers,. The movemments are only separated by a new line. Pressing "Ctrl+D" finishes the list of instructions. If the list of numbers passed can be sorted with those instructions it will display "OK", if not, "KO". It can also display "Error" in case you type a nonexistent instruction or a invalid list of number.
 </p>
@@ -78,9 +80,10 @@ you can run it with:
     Instructions to use
 </h2>
 Clone this repository in you local computer using a terminal:
-<ul>
-	<li>$> git clone git@github.com:GiovannaCoqueiro/42cursus-push-swap.git [repository_local]</li>
-</ul>
+
+```sh
+$> git clone git@github.com:GiovannaCoqueiro/42cursus-push-swap.git [repository_local]
+```
 
 After cloning the project in your local reposiory you can run some commands you can find in Makefile:
 <ul>
