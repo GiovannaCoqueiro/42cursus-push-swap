@@ -6,11 +6,13 @@
 /*   By: gcoqueir <gcoqueir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 13:51:01 by gcoqueir          #+#    #+#             */
-/*   Updated: 2023/09/04 16:31:19 by gcoqueir         ###   ########.fr       */
+/*   Updated: 2023/09/05 12:52:36 by gcoqueir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static void	exec_move(t_list *list, char *line);
 
 void	take_instructions(t_list *list)
 {
@@ -22,9 +24,13 @@ void	take_instructions(t_list *list)
 		exec_move(list, list->cmd);
 		free(list->cmd);
 	}
+	if (is_sorted(list) == 1 && list->b_len == 0)
+		ft_printf("OK\n");
+	else
+		ft_printf("KO\n");
 }
 
-void	exec_move(t_list *list, char *line)
+static void	exec_move(t_list *list, char *line)
 {
 	if (ft_strcmp(line, SA) == 0)
 		swap_a(list, list->a, 0);
@@ -50,12 +56,4 @@ void	exec_move(t_list *list, char *line)
 		revrol_revrol(list, 0);
 	else
 		error_check(list);
-}
-
-void	print_result(t_list *list)
-{
-	if (is_sorted(list) == 1 && list->b_len == 0)
-		ft_printf("OK\n");
-	else
-		ft_printf("KO\n");
 }
