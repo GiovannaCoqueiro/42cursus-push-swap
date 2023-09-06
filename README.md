@@ -6,7 +6,7 @@
 	<h2>
 		<i>Push Swap</i>
 	</h2>
-	<img src="https://github.com/GiovannaCoqueiro/42cursus-push-swap/assets/115947494/6124a648-a0e1-40fa-a498-5af2e450b55d" alt=push_swap badge/>
+	<img src="https://github.com/GiovannaCoqueiro/42cursus-push-swap/assets/115947494/6124a648-a0e1-40fa-a498-5af2e450b55d" alt=push_swap_badge/>
 	<p align=center>
     		Inside this repository, you can see all the code that has been created for the Push Swap project, including the mandatory part and the bonus part.
 	</p>
@@ -18,10 +18,15 @@
 	<h2>
 		Final score
 	</h2>
-	<img src="https://github.com/GiovannaCoqueiro/42cursus-so-long/assets/115947494/fabaeaf5-3b12-46fc-af5c-104c03b28526" alt=push_swap grade/>
+	<img src="https://github.com/GiovannaCoqueiro/42cursus-so-long/assets/115947494/fabaeaf5-3b12-46fc-af5c-104c03b28526" alt=push_swap_grade/>
 </div>
 
 ---
+
+<h3 align=left>
+  How my algorithm works visually
+</h3>
+  <img src="https://github.com/GiovannaCoqueiro/42cursus-push-swap/blob/main/gif/sorting.gif" alt=algorithm_gif/>
 
 <h3 align=left>
     Mandatory
